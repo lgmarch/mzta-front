@@ -1,0 +1,11 @@
+/* GLOBAL */
+/* здесь используйте глобальные переменные */
+/* здесь используйте глобальные селекторы img, body, html и так далее */
+/* здесь подключите шрифты */
+/* BLOCKS */
+.header {
+  background-color: blue;
+  color: #fff;
+  padding: 10px 15px;
+}
+/*# sourceMappingURL=style.css.map */
