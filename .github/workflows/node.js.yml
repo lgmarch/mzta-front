@@ -39,6 +39,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           deploy_key: ${{ secrets.DEPLOY_KEY }}
-          publish_dir: ./build
+          publish_dir: build
           repo: 'https://github.com/lgmarch/mzta-front.git'
           branch: 'gh-pages'

@@ -7,6 +7,7 @@ import rename from 'gulp-rename';
 import autoprefixer from 'autoprefixer';
 import browser from 'browser-sync';
 import htmlmin from 'gulp-htmlmin';
+import {deleteAsync} from 'del';
 
 // Styles
 
@@ -54,18 +55,32 @@ const server = (done) => {
 
 // Clean -> gulp clean
 
-const clean = () => {
-  return del('build'); 	// просто удаляем папку build
+export const clean = () => {
+  return deleteAsync(['build']);
 }
+
+// Copy
+
+export const copy = (done) => {
+  gulp.src([
+    'source/fonts/*.{woff2, woff}', 	// копируем и переносим шрифты в папку build
+    'source/*.ico',			// копируем фавиконки и переносим в build
+  ], {
+    base: 'source'
+  })
+    .pipe(gulp.dest('build'))
+  done();
+}
+
 
 // Build -> npm run build
 
 export const build = gulp.series(
-  clean,
+  clean, copy,
   gulp.parallel(styles,html),
 );
 
 
 export default gulp.series(
-  html, styles, server, watcher
+  styles, html, server, watcher
 );
