@@ -23,7 +23,7 @@
   },
   "scripts": {
     "editorconfig": "editorconfig-cli",
-    "stylelint:fix": "stylelint --fix \"source/less/**/*.less\"",
+    "fix": "stylelint --fix \"source/less/**/*.less\"",
     "test": "npm run editorconfig && npx stylelint \"source/less/**/*.less\"",
     "build": "gulp build",
     "start": "gulp"
