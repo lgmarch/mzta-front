@@ -20,4 +20,8 @@
 ### [Ссылка на страницу](https://lgmarch.github.io/mzta-front/)
 
 [Документация GitHub Actions](https://docs.github.com/ru/actions)<br>
-[GuickStart](https://docs.github.com/ru/actions/writing-workflows/quickstart)
+[GuickStart](https://docs.github.com/ru/actions/writing-workflows/quickstart)<br>
+
+### Работа с изображениями
+[gulp-libsquoosh](https://www.npmjs.com/package/gulp-libsquoosh)<br>
+[Sharp](https://www.npmjs.com/package/sharp)
