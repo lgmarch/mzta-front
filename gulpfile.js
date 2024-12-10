@@ -90,7 +90,7 @@ const copy = (done) => {
 }
 
 // Build -> npm run build
-const build = gulp.series(
+export const build = gulp.series(
   clean, copy,
   gulp.parallel(styles, html)
 );
