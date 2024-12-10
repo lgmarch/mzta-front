@@ -4,11 +4,289 @@
     <meta charset="UTF-8">
     <title>Название проекта</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/style.css">
   </head>
-  <body class="page__body">
-    <header class="header">Шапка</header>
 
-    <script src="./js/script.js" defer></script>
+  <body class="page__body">
+    <header class="page-header">
+      <!-- Логотип -->
+      <a class="page-header__logo">
+        <img class="page-header__logo-image" src="img/logo-mobile.svg" width="161" height="73" alt="SuperSCADA MZTA">
+      </a>
+      <!-- Навигация -->
+      <nav class="main-nav">
+        <button class="main-nav__toggle" type="button">
+          <span class="visually-hidden">Открыть меню</span>
+        </button>
+        <div class="main-nav__wrapper">
+          <ul class="main-nav__list">
+            <li class="main-nav__item main-nav__item--active">
+              <a>Безопасность</a>
+            </li>
+            <li class="main-nav__item main-nav__item--active">
+              <a>Выполненные работы</a>
+            </li>
+            <li class="main-nav__item main-nav__item--active">
+              <a>Производительность</a>
+            </li>
+          </ul>
+          <button class="main-nav__btn" type="button">
+            <span class="btn">Купить / Попробовать</span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Основное содержимое -->
+    <main class="page-main">
+      <h1 class="visually-hidden">SuperSCADA - это SCADA нового поколения!</h1>
+
+      <section class="description">
+        <div class="description__wrapper">
+          <h2 class="visually-hidden">Описание SuperSCADA</h2>
+          <p class="description__title">
+            Отечественная система автоматизации и диспетчеризации инженерных систем
+          </p>
+          <p class="description__intro">
+            Наше решение на основе открытого кода обеспечивает максимальную гибкость и
+            долгосрочные преимущества для вашего бизнеса
+          </p>
+        </div>
+      </section>
+
+      <section class="advantages">
+        <div class="advantages__wrapper">
+          <h2 class="visually-hidden">Преимущества SuperSCADA</h2>
+          <ul class="advantages__list">
+            <li class="advantages__item advantages__item--control">
+              <h3 class="advantages__title">Управление территориально-распределенными объектами</h3>
+              <p class="advantages__description">
+                SuperSCADA интегрирована с распространенной в России геоинформационной системой ZuluGIS разработчика Политерм
+              </p>
+            </li>
+            <li class="advantages__item advantages__item--protocols">
+              <h3 class="advantages__title">Максимум протоколов передачи данных</h3>
+              <p class="advantages__description">
+                Поддержка как проприетарных, так и стандартизированных протоколов обмена реализуется пользователем созданием DATAPROVIDER
+              </p>
+            </li>
+            <li class="advantages__item advantages__item--reliability">
+              <h3 class="advantages__title">Высокая надежность</h3>
+              <p class="advantages__description">
+                Горячее резервирование, защищенный обмен данными с помощью SSL-сертификатов, решение задач авторизации и аутентификации
+              </p>
+            </li>
+            <li class="advantages__item advantages__item--compatibility">
+              <h3 class="advantages__title">Легальность и совместимость с российским ПО</h3>
+              <p class="advantages__description">
+                SuperSCADA вошла в Единый реестр российских программ для ЭВМ и баз данных под номером 14992, совместима с ОС Astra Linux Special Edition, совместима с операционной системой РЕД ОС
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="description">
+        <div class="description__wrapper slider">
+          <h2>Возможности SuperSCADA</h2>
+          <ul class="description__list slider__list">
+            <li class="description__item slider__item">
+              <h3 class="description__title">ModBus TCP/IP 1</h3>
+              <p class="description__text">
+                Открытый коммуникационный протокол, основанный на архитектуре ведущий — ведомый
+              </p>
+            </li>
+            <li class="description__item slider__item">
+              <h3 class="description__title">ModBus TCP/IP 2</h3>
+              <p class="description__text">
+                Открытый коммуникационный протокол, основанный на архитектуре ведущий — ведомый
+              </p>
+            </li>
+            <li class="description__item slider__item">
+              <h3 class="description__title">ModBus TCP/IP 3</h3>
+              <p class="description__text">
+                Открытый коммуникационный протокол, основанный на архитектуре ведущий — ведомый
+              </p>
+            </li>
+            <li class="description__item slider__item">
+              <h3 class="description__title">ModBus TCP/IP 4</h3>
+              <p class="description__text">
+                Открытый коммуникационный протокол, основанный на архитектуре ведущий — ведомый
+              </p>
+            </li>
+            <li class="description__item slider__item">
+              <h3 class="description__title">ModBus TCP/IP 5</h3>
+              <p class="description__text">
+                Открытый коммуникационный протокол, основанный на архитектуре ведущий — ведомый
+              </p>
+            </li>
+          </ul>
+          <p class="description__toggles slider__toggles">
+            <button class="slider__toggle slider__toggle--current" type="button">1</button>
+            <button class="slider__toggle" type="button">2</button>
+            <button class="slider__toggle" type="button">3</button>
+            <button class="slider__toggle" type="button">4</button>
+            <button class="slider__toggle" type="button">5</button>
+          </p>
+          <p class="description__footer">
+            Все распространенные протоколы, все отечественные ОС,
+            любые контроллеры *
+          </p>
+          <p class="description__note">
+            * поддерживающие OPC UA
+          </p>
+        </div>
+      </section>
+
+      <section class="safety">
+        <div class="safety__wrapper">
+          <h2 class="safety__title">Высокие стандарты безопасности</h2>
+          <div class="safety__description">
+            Совместимость с Kaspersky Industrial CyberSecurity (KICS) обеспечивает защиту конечных узлов
+            путем инвентаризации, мониторинга и выявления рисков и угроз промышленных инфраструктур
+          </div>
+        </div>
+      </section>
+
+      <section class="efficiency">
+        <div class="efficiency__wrapper">
+          <h2 class="safety__title">Беспрецедентная производительность</h2>
+          <div class="efficiency__container">
+            <img src="img/comparison-indicators.svg" alt="Сравнение SuperSCADA c другими SCADA.">
+            <img src="img/tags-minute.svg" alt="Скорость обработки тегов.">
+          </div>
+        </div>
+      </section>
+
+      <section class="system">
+        <div class="system__wrapper">
+          <h2 class="system__title">Поддерживает Astra Linux и Red OS</h2>
+          <div class="system__certificate">
+            <img src="img/red-certificate.svg" alt="Сертификат SuperSCADA от РедСофт.">
+            <img src="img/astra-certificate.svg" alt="Сертификат SuperSCADA от AstraLinux.">
+          </div>
+          <p class="system__note">
+            Подходит для предприятий с особыми требованиями к программному обеспечению
+          </p>
+        </div>
+      </section>
+
+      <section class="instruments">
+        <div class="instruments__wrapper">
+          <h2 class="instruments__title">Полный сет инструментов для создания лучших проектных решений</h2>
+          <ul class="instruments__list">
+            <li class="instruments__item decision">
+              <h3 class="decision__title">Мониторинг в режиме реального времени</h3>
+              <p class="decision__text">
+                Оперативный контроль всех технологических процессов с возможностью мгновенного реагирования на изменения
+              </p>
+            </li>
+            <li class="instruments__item decision">
+              <h3 class="decision__title">Масштабируемость</h3>
+              <p class="decision__text">
+                Легко адаптируется к любым масштабам производства, от малых предприятий до крупных промышленных комплексов
+              </p>
+            </li>
+            <li class="instruments__item decision">
+              <h3 class="decision__title">Аналитика и отчеты</h3>
+              <p class="decision__text">
+                Генерация подробных отчетов и анализ данных для принятия обоснованных решений
+              </p>
+            </li>
+            <li class="instruments__item decision">
+              <h3 class="decision__title">Управление и контроль</h3>
+              <p class="decision__text">
+                Автоматизация процессов и управление оборудованием с любой точки с помощью веб-интерфейса
+              </p>
+            </li>
+            <li class="instruments__item decision">
+              <h3 class="decision__title">Модульная структура</h3>
+              <p class="decision__text">
+                Легкое добавление и настройка новых функциональных модулей под специфические задачи
+              </p>
+            </li>
+            <li class="instruments__item decision">
+              <h3 class="decision__title">Интеграция с ERP</h3>
+              <p class="decision__text">
+                Бесшовная интеграция с существующими системами управления предприятием
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="jobs">
+        <div class="jobs__wrapper slider">
+          <h2 class="jobs__title">Выполненные работы</h2>
+          <ul class="jobs__list reviews slider__list">
+            <li class="reviews slider__item">
+              <img src="img/job/bez-sv1.png" alt="Отзыв от ЗАО Безопасность и связь.">
+            </li>
+            <li class="reviews slider__item">
+              <img src="img/job/bez-sv2.png" alt="Отзыв от Первый Чешско-Российский банк.">
+            </li>
+            <li class="reviews slider__item">
+              <img src="img/job/bez-sv3.png" alt="Отзыв от Московского завода тепловой автоматикию">
+            </li>
+            <li class="reviews slider__item">
+              <img src="img/job/bez-sv4.png" width="318" height="455" alt="Отзыв от посольства США.">
+            </li>
+          </ul>
+          <p class="description__toggles slider__toggles">
+            <button class="slider__toggle slider__toggle--current" type="button">1</button>
+            <button class="slider__toggle" type="button">2</button>
+            <button class="slider__toggle" type="button">3</button>
+            <button class="slider__toggle" type="button">4</button>
+            <button class="slider__toggle" type="button">5</button>
+          </p>
+        </div>
+      </section>
+
+      <section class="tiles">
+        <div class="tiles__wrapper">
+          <h2 class="tiles__title">SuperSCADA плиточки</h2>
+          <ul class="tiles__list movie slider__list">
+            <li class="movie slider__item">
+              <h3 class="visual-hidden">Просмотр кино 1.</h3>
+            </li>
+            <li class="movie slider__item">
+              <h3 class="visual-hidden">Просмотр кино 2.</h3>
+            </li>
+          </ul>
+          <p class="description__toggles slider__toggles">
+            <button class="slider__toggle slider__toggle--current" type="button">1</button>
+            <button class="slider__toggle" type="button">2</button>
+            <button class="slider__toggle" type="button">3</button>
+            <button class="slider__toggle" type="button">4</button>
+          </p>
+        </div>
+      </section>
+
+      <section class="form">
+        <div class="form__wrapper">
+          <h2 class="form__title">Попробуйте SuperSCADA бесплатно</h2>
+          <div class="form__fill">
+            <input class="form__input" type="text" placeholder="ivanov@yandex.ru">
+            <input class="form__input" type="text" placeholder="Иванов Иван Иванович">
+            <input class="form__input" type="text" placeholder="Рога и копыта">
+            <input class="form__input" type="text" placeholder="+74954567890">
+          </div>
+          <div class="form__description">
+            <p>Оставьте заявку на демо-версию прямо сейчас через форму обратной связи на сайте и оцените все
+              возможности SuperSCADA в действии.
+            </p>
+            <p>Кроме того, Вы получите эксклюзивное коммерческое предложение на лицензию, доступ к
+              обучающим видеоматериалам и курсам, а также познакомитесь с "Плиточками SuperSCADA"
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Футер -->
+    <footer>
+      <p>&copy; 2023 SSCADA</p>
+    </footer>
+
   </body>
 </html>

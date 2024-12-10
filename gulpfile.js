@@ -36,14 +36,14 @@ export const html = () => {
 export const optimizeImages = () => {
   return gulp.src('source/img/**/*.{jpg,png}')
     .pipe(imagemin())
-    .pipe(gulp.dest('build/img'))
+    .pipe(gulp.dest('build/img'));
 }
 
 // Задача не для продакшина (чтобы быстрее выполнялась)
 // Копируем изображения в папку build без оптимизации
 export const copyImages = () => {
   return gulp.src('source/img/**/*.{jpg,png,svg}')
-    .pipe(gulp.dest('build/img'))
+    .pipe(gulp.dest('build/img'));
 }
 
 // Scripts
@@ -85,14 +85,14 @@ const copy = (done) => {
   ], {
     base: 'source'
   })
-    .pipe(gulp.dest('build'))
+  .pipe(gulp.dest('build'));
   done();
 }
 
 // Build -> npm run build
 const build = gulp.series(
   clean, copy,
-  gulp.parallel(styles, html),
+  gulp.parallel(styles, html)
 );
 
 // Develop
