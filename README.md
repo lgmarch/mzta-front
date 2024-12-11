@@ -1,7 +1,6 @@
 ✨ Status of Last CI/CD: ✨ <br>
-![Test Status](https://github.com/lgmarch/mzta-front/workflows/build/badge.svg?branch=master)
 ![Build Status](https://github.com/lgmarch/mzta-front/workflows/build/badge.svg?branch=master)
-![Deploy Status](https://github.com/lgmarch/mzta-front/workflows/build/badge.svg?branch=master)
+![Deploy Status](https://github.com/lgmarch/mzta-front/workflows/deploy/badge.svg?branch=master)
 
 # Краткая инструкция по работе
 
