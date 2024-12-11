@@ -1,5 +1,5 @@
 ✨ Status of Last CI/CD: ✨ <br>
-<img src="https://github.com/lgmarch/mzta-front/workflows/node.js.yml/badge.svg?branch=master">
+![Build Status](https://github.com/lgmarch/mzta-front/workflows/build/badge.svg?branch=styles)
 
 # Краткая инструкция по работе
 
