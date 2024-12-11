@@ -266,10 +266,17 @@
         <div class="form__wrapper">
           <h2 class="form__title">Попробуйте SuperSCADA бесплатно</h2>
           <div class="form__fill">
-            <input class="form__input" type="text" placeholder="ivanov@yandex.ru">
-            <input class="form__input" type="text" placeholder="Иванов Иван Иванович">
-            <input class="form__input" type="text" placeholder="Рога и копыта">
-            <input class="form__input" type="text" placeholder="+74954567890">
+            <label for="mail" class="form__label">Ваша почта</label>
+            <input class="form__input" id="mail" type="text" placeholder="ivanov@yandex.ru" required>
+
+            <label for="surname" class="form__label">Ваша почта</label>
+            <input class="form__input" id="surname" type="text" placeholder="Иванов Иван Иванович" required>
+
+            <label for="firm" class="form__label">Ваша почта</label>
+            <input class="form__input" id="firm" type="text" placeholder="Рога и копыта" required>
+
+            <label for="tel" class="form__label">Ваша почта</label>
+            <input class="form__input" id="tel" type="text" placeholder="+74954567890" required>
           </div>
           <div class="form__description">
             <p>Оставьте заявку на демо-версию прямо сейчас через форму обратной связи на сайте и оцените все
@@ -278,6 +285,7 @@
             <p>Кроме того, Вы получите эксклюзивное коммерческое предложение на лицензию, доступ к
               обучающим видеоматериалам и курсам, а также познакомитесь с "Плиточками SuperSCADA"
             </p>
+            <button type="submit">Оставить заявку</button>
           </div>
         </div>
       </section>
@@ -285,8 +293,29 @@
 
     <!-- Футер -->
     <footer>
-      <p>&copy; 2023 SSCADA</p>
+      <div class="footer__wrapper">
+        <div class="footer__headlines">
+          <p class="about__name">МЗТА</p>
+          <p class="about__name">SuperSCADA</p>
+          <p class="about__name">Контакты</p>
+        </div>
+        <div class="footer__about footer-text">
+          <p class="about__name">О компании</p>
+          <p class="about__name">Вакансии</p>
+          <p class="about__name">Новости</p>
+        </div>
+        <div class="footer__about footer-text">
+          <p class="about__name">Документация</p>
+          <p class="about__name">Тарифы</p>
+        </div>
+        <div class="footer__contact footer-text">
+          <p class="about__name">Россия, 105318, г. Москва, ул. Мироновская, 33</p>
+          <p class="about__name">info@mzta.ru</p>
+          <p class="about__name">+7 (495) 720-54-44</p>
+          <p class="about__name">8 (800) 555-61-84</p>
+        </div>
+      </div>
+      <p>&copy; 2024 МЗТА</p>
     </footer>
-
   </body>
 </html>
