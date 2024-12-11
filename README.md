@@ -1,13 +1,27 @@
+✨ Status of Last CI/CD: ✨ <br>
+<img src="https://github.com/lgmarch/mzta-front/workflows/node.js.yml/badge.svg?branch=master">
+
 # Краткая инструкция по работе
 
-1. [Установить node.js](https://nodejs.org/download/release/latest-v16.x/). Сборка работает на 16 версии
-2. С помощью терминала установить зависимости - `npm i`
-3. Запустить сборку - `npm start`
-4. Для проверки на ошибки запустить - `npm run lint`
-5. Проверка на ошибки и их автоматическое исправление - `npm run stylelint:fix`
+## Локальный компьютер
+1. [Установить node.js](https://nodejs.org/download/release/latest-v16.x/). Сборка работает на 20 версии Node.
+2. Установка зависимостей - `npm i`
+3. Запуск сборки - `npm start`
+4. Проверка на ошибки - `npm test`
+5. Автоматическое исправление ошибок - `npm run fix`
+6. Сборка проекта (папка build) - `npm run build`
+
+## При push или pull_request в ветку master на Github:
+1. Выполняется проверка кода.
+2. Сборка проекта.
+3. Размещение проекта в интернете.
 
 # Страница в интернете
-[Ссылка на страницу](https://lgmarch.github.io/mzta-front/)
+### [Ссылка на страницу](https://lgmarch.github.io/mzta-front/)
 
-### [Документация GitHub Actions](https://docs.github.com/ru/actions)
-### [Steps](https://docs.github.com/ru/actions/writing-workflows/quickstart)
+[Документация GitHub Actions](https://docs.github.com/ru/actions)<br>
+[GuickStart](https://docs.github.com/ru/actions/writing-workflows/quickstart)<br>
+
+### Работа с изображениями
+[gulp-libsquoosh](https://www.npmjs.com/package/gulp-libsquoosh)<br>
+[Sharp](https://www.npmjs.com/package/sharp)

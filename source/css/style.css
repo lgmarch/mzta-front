@@ -4,8 +4,10 @@
 /* здесь подключите шрифты */
 /* BLOCKS */
 .header {
-  background-color: blue;
-  color: #fff;
-  padding: 10px 15px;
+  background-color: #f0f0f0;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 /*# sourceMappingURL=style.css.map */

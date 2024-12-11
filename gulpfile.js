@@ -5,12 +5,12 @@ import postcss from 'gulp-postcss';
 import csso from 'postcss-csso';
 import rename from 'gulp-rename';
 import autoprefixer from 'autoprefixer';
+import imagemin from 'gulp-imagemin';
 import browser from 'browser-sync';
 import htmlmin from 'gulp-htmlmin';
 import {deleteAsync} from 'del';
 
 // Styles
-
 export const styles = () => {
   return gulp.src('source/less/style.less', { sourcemaps: true })
     .pipe(plumber())
@@ -25,22 +25,41 @@ export const styles = () => {
 }
 
 // HTML
-
 export const html = () => {
   return gulp.src('source/*.html')
     .pipe(htmlmin({collapseWhitespace: true}))
     .pipe(gulp.dest('build'));		// положи все в папку build
 }
 
-// Watcher
+// Images
+// Задача для продакшена - оптимизация изображений
+export const optimizeImages = () => {
+  return gulp.src('source/img/**/*.{jpg,png}')
+    .pipe(imagemin())
+    .pipe(gulp.dest('build/img'));
+}
 
+// Задача не для продакшина (чтобы быстрее выполнялась)
+// Копируем изображения в папку build без оптимизации
+export const copyImages = () => {
+  return gulp.src('source/img/**/*.{jpg,png,svg}')
+    .pipe(gulp.dest('build/img'));
+}
+
+// Scripts
+export const scripts = () => {
+  return gulp.src('source/js/*.js')
+    .pipe(terser())
+    .pipe(gulp.dest('build/js'));
+}
+
+// Watcher
 const watcher = () => {
   gulp.watch('source/less/**/*.less', gulp.series(styles));
-  gulp.watch('source/*.html').on('change', browser.reload);
+  gulp.watch('source/*.html', gulp.series(html)).on('change', browser.reload);
 }
 
 // Server
-
 const server = (done) => {
   browser.init({
     server: {
@@ -54,33 +73,31 @@ const server = (done) => {
 }
 
 // Clean -> gulp clean
-
-export const clean = () => {
+const clean = () => {
   return deleteAsync(['build']);
 }
 
 // Copy
-
-export const copy = (done) => {
+const copy = (done) => {
   gulp.src([
     'source/fonts/*.{woff2, woff}', 	// копируем и переносим шрифты в папку build
     'source/*.ico',			// копируем фавиконки и переносим в build
   ], {
     base: 'source'
   })
-    .pipe(gulp.dest('build'))
+  .pipe(gulp.dest('build'));
   done();
 }
 
-
 // Build -> npm run build
-
 export const build = gulp.series(
   clean, copy,
-  gulp.parallel(styles,html),
+  gulp.parallel(styles, html)
 );
 
-
+// Develop
 export default gulp.series(
-  styles, html, server, watcher
+  clean, copy, copyImages,
+  gulp.parallel(styles, html),
+  gulp.series(server, watcher)
 );
