@@ -1,5 +1,7 @@
 ✨ Status of Last CI/CD: ✨ <br>
-![Build Status](https://github.com/lgmarch/mzta-front/workflows/build/badge.svg?branch=styles)
+![Test Status](https://github.com/lgmarch/mzta-front/workflows/build/badge.svg?branch=master)
+![Build Status](https://github.com/lgmarch/mzta-front/workflows/build/badge.svg?branch=master)
+![Deploy Status](https://github.com/lgmarch/mzta-front/workflows/build/badge.svg?branch=master)
 
 # Краткая инструкция по работе
 
@@ -12,7 +14,7 @@
 6. Сборка проекта (папка build) - `npm run build`
 
 ## При push или pull_request в ветку master на Github:
-1. Выполняется проверка кода.
+1. Выполняется проверка кода (ошибки, стили).
 2. Сборка проекта.
 3. Размещение проекта в интернете.
 
