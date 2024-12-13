@@ -1,0 +1,43 @@
+.button-toggle {
+  display: block;
+  position: absolute;
+
+  top: 40px;
+  right: 40px;
+  z-index: 2;
+  width: 25px;
+  height: 25px;
+  background-color: @background;
+  cursor: pointer;
+  border: none;
+
+  border: none;
+  cursor: pointer;
+}
+
+.button-toggle::before,
+.button-toggle::after,
+.button-toggle .dot1,
+.button-toggle .dot2,
+.button-toggle .dot3,
+.button-toggle .dot4,
+.button-toggle .dot5,
+.button-toggle .dot6,
+.button-toggle .dot7 {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color: #D9D9D9;
+  border-radius: 50%;
+}
+
+.button-toggle::before { top: 0; left: 0; }
+.button-toggle::after { top: 0; right: 0; }
+.button-toggle .dot1 { top: 0; left: 10px; }
+.button-toggle .dot2 { top: 10px; right: 0; background-color: #7DE1E1; }
+.button-toggle .dot3 { top: 10px; left: 0; }
+.button-toggle .dot4 { top: 10px; left: 10px; }
+.button-toggle .dot5 { top: 20px; right: 0; background-color: #E5585F; }
+.button-toggle .dot6 { top: 20px; left: 0; }
+.button-toggle .dot7 { top: 20px; left: 10px; }
