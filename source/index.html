@@ -2,9 +2,9 @@
 <html class="page" lang="ru">
   <head>
     <meta charset="UTF-8">
-    <title>Название проекта</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" href="css/style.css">
+    <title>SuperSCADA</title>
+    <link rel="stylesheet" href="css/style.min.css">
   </head>
 
   <body class="page__body">
@@ -28,22 +28,19 @@
 
       <!-- Навигация -->
       <nav class="main-nav">
-        <button class="main-nav__toggle" type="button">
-          <span class="visually-hidden">Открыть меню</span>
-        </button>
         <div class="main-nav__wrapper">
           <ul class="main-nav__list">
             <li class="main-nav__item main-nav__item--active">
-              <a>Безопасность</a>
+              <a class="main-nav__text" href="#">Безопасность</a>
             </li>
             <li class="main-nav__item main-nav__item--active">
-              <a>Выполненные работы</a>
+              <a href="#">Выполненные работы</a>
             </li>
             <li class="main-nav__item main-nav__item--active">
-              <a>Производительность</a>
+              <a href="#">Производительность</a>
             </li>
           </ul>
-          <button class="main-nav__btn" type="button">
+          <button class="main-btn" type="button">
             <span class="btn">Купить / Попробовать</span>
           </button>
         </div>
@@ -306,29 +303,32 @@
 
     <!-- Футер -->
     <footer>
-      <div class="footer__wrapper">
-        <div class="footer__headlines">
-          <p class="about__name">МЗТА</p>
-          <p class="about__name">SuperSCADA</p>
-          <p class="about__name">Контакты</p>
+      <div class="footer__wrapper contacts">
+        <div class="contacts__headlines">
+          <p class="contacts__name">МЗТА</p>
+          <p class="contacts__name">SuperSCADA</p>
+          <p class="contacts__name">Контакты</p>
         </div>
-        <div class="footer__about footer-text">
-          <p class="about__name">О компании</p>
-          <p class="about__name">Вакансии</p>
-          <p class="about__name">Новости</p>
+        <div class="contacts__about">
+          <p class="contacts__text">О компании</p>
+          <p class="contacts__text">Вакансии</p>
+          <p class="contacts__text">Новости</p>
         </div>
-        <div class="footer__about footer-text">
-          <p class="about__name">Документация</p>
-          <p class="about__name">Тарифы</p>
+        <div class="contacts__doc">
+          <p class="contacts__text">Документация</p>
+          <p class="contacts__text">Тарифы</p>
         </div>
-        <div class="footer__contact footer-text">
-          <p class="about__name">Россия, 105318, г. Москва, ул. Мироновская, 33</p>
-          <p class="about__name">info@mzta.ru</p>
-          <p class="about__name">+7 (495) 720-54-44</p>
-          <p class="about__name">8 (800) 555-61-84</p>
+        <div class="contacts__address">
+          <p class="contacts__text">Россия, 105318, г. Москва, ул. Мироновская, 33</p>
+          <p class="contacts__text">info@mzta.ru</p>
+          <p class="contacts__text">+7 (495) 720-54-44</p>
+          <p class="contacts__text">8 (800) 555-61-84</p>
         </div>
       </div>
-      <p>&copy; 2024 МЗТА</p>
+      <div class="page-footer__copyright copyright">
+        <b class="copyright__text">Разработано:</b>
+        <a class="copyright__link" href="https://march.ru">March</a>
+      </div>
     </footer>
   </body>
 </html>
