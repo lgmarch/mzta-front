@@ -1,0 +1,21 @@
+.page-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: @background;
+}
+
+.page-header__logo {
+  position: relative;
+
+  width: @mobile-width;
+  height: 85px;
+
+  margin: 0 30px;
+  padding-top: 15px;
+
+  @media (min-width: @desktop-width) {
+    height: 120px;
+  }
+}
