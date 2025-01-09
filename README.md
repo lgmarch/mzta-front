@@ -18,7 +18,7 @@
 3. Размещение проекта в интернете.
 
 # Страница в интернете
-### [Ссылка на страницу](https://lgmarch.github.io/mzta-front/)
+[Ссылка на страницу](https://lgmarch.github.io/mzta-front/)
 
 [Документация GitHub Actions](https://docs.github.com/ru/actions)<br>
 [GuickStart](https://docs.github.com/ru/actions/writing-workflows/quickstart)<br>

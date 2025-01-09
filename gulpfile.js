@@ -28,22 +28,7 @@ export const styles = () => {
 export const html = () => {
   return gulp.src('source/*.html')
     .pipe(htmlmin({collapseWhitespace: true}))
-    .pipe(gulp.dest('build'));		// положи все в папку build
-}
-
-// Images
-// Задача для продакшена - оптимизация изображений
-export const optimizeImages = () => {
-  return gulp.src('source/img/**/*.{jpg,png}')
-    .pipe(imagemin())
-    .pipe(gulp.dest('build/img'));
-}
-
-// Задача не для продакшина (чтобы быстрее выполнялась)
-// Копируем изображения в папку build без оптимизации
-export const copyImages = () => {
-  return gulp.src('source/img/**/*.{jpg,png,svg}')
-    .pipe(gulp.dest('build/img'));
+    .pipe(gulp.dest('build'));
 }
 
 // Scripts
@@ -53,14 +38,35 @@ export const scripts = () => {
     .pipe(gulp.dest('build/js'));
 }
 
-// Watcher
-const watcher = () => {
-  gulp.watch('source/less/**/*.less', gulp.series(styles));
-  gulp.watch('source/*.html', gulp.series(html)).on('change', browser.reload);
+// Images
+export const optimizeImages = () => {
+  return gulp.src('source/img/**/*.{jpg,png}', { encoding: false })
+    .pipe(imagemin())
+    .pipe(gulp.dest('build/img'));
+}
+
+export const copyImages = () => {
+  return gulp.src('source/img/**/*.{jpg,png,svg}')
+    .pipe(gulp.dest('build/img'));
+}
+
+// Copy fonts, icon, manifest
+export const copy = (done) => {
+  gulp.src([
+    'source/fonts/*.{woff2,woff}',
+    'source/*.ico',
+    //'source/manifest.webmanifest',
+  ], { base: 'source', encoding: false }).pipe(gulp.dest('build'))
+  done();
+}
+
+// Clean
+export const clean = () => {
+  return deleteAsync('build');
 }
 
 // Server
-const server = (done) => {
+export const server = (done) => {
   browser.init({
     server: {
       baseDir: 'build'
@@ -72,32 +78,28 @@ const server = (done) => {
   done();
 }
 
-// Clean -> gulp clean
-const clean = () => {
-  return deleteAsync(['build']);
-}
-
-// Copy
-const copy = (done) => {
-  gulp.src([
-    'source/fonts/*.{woff2, woff}', 	// копируем и переносим шрифты в папку build
-    'source/*.ico',			// копируем фавиконки и переносим в build
-  ], {
-    base: 'source'
-  })
-  .pipe(gulp.dest('build'));
+// Reload
+const reload = (done) => {
+  browser.reload();
   done();
 }
 
-// Build -> npm run build
+// Watcher
+const watcher = () => {
+  gulp.watch('source/less/**/*.less', gulp.series(styles));
+  gulp.watch('source/js/*.js', gulp.series(scripts));
+  gulp.watch('source/*.html', gulp.series(html, reload));
+}
+
+// Build
 export const build = gulp.series(
-  clean, copy,
-  gulp.parallel(styles, html)
+  clean, copy, optimizeImages,
+  gulp.parallel(styles,html),
 );
 
 // Develop
 export default gulp.series(
-  clean, copy, copyImages,
-  gulp.parallel(styles, html),
+  clean, copy, copyImages, gulp.parallel(
+    styles,html),
   gulp.series(server, watcher)
 );

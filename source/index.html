@@ -2,35 +2,45 @@
 <html class="page" lang="ru">
   <head>
     <meta charset="UTF-8">
-    <title>Название проекта</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" href="css/style.css">
+    <title>SuperSCADA</title>
+    <link rel="stylesheet" href="css/style.min.css">
   </head>
 
   <body class="page__body">
     <header class="page-header">
       <!-- Логотип -->
-      <a class="page-header__logo">
-        <img class="page-header__logo-image" src="img/logo-mobile.svg" width="161" height="73" alt="SuperSCADA MZTA">
-      </a>
+      <div class="page-header__container">
+        <a class="page-header__logo">
+          <img class="page-header__logo-image" src="img/logo-mobile.png" width="161" height="73" alt="SuperSCADA">
+          <button class="main-nav__toggle button-toggle" type="button">
+            <span class="visually-hidden">Открыть меню</span>
+            <div class="dot1"><span class="visually-hidden">1 button point</span></div>
+            <div class="dot2"><span class="visually-hidden">2 button point</span></div>
+            <div class="dot3"><span class="visually-hidden">3 button point</span></div>
+            <div class="dot4"><span class="visually-hidden">1 button point</span></div>
+            <div class="dot5"><span class="visually-hidden">1 button point</span></div>
+            <div class="dot6"><span class="visually-hidden">1 button point</span></div>
+            <div class="dot7"><span class="visually-hidden">1 button point</span></div>
+          </button>
+        </a>
+      </div>
+
       <!-- Навигация -->
       <nav class="main-nav">
-        <button class="main-nav__toggle" type="button">
-          <span class="visually-hidden">Открыть меню</span>
-        </button>
         <div class="main-nav__wrapper">
           <ul class="main-nav__list">
             <li class="main-nav__item main-nav__item--active">
-              <a>Безопасность</a>
+              <a class="main-nav__text" href="#">Безопасность</a>
             </li>
             <li class="main-nav__item main-nav__item--active">
-              <a>Выполненные работы</a>
+              <a class="main-nav__text" href="#">Выполненные работы</a>
             </li>
             <li class="main-nav__item main-nav__item--active">
-              <a>Производительность</a>
+              <a class="main-nav__text" href="#">Производительность</a>
             </li>
           </ul>
-          <button class="main-nav__btn" type="button">
+          <button class="main-nav__btn main-btn" type="button">
             <span class="btn">Купить / Попробовать</span>
           </button>
         </div>
@@ -55,30 +65,32 @@
       </section>
 
       <section class="advantages">
+        <h2 class="visually-hidden">Преимущества SuperSCADA</h2>
         <div class="advantages__wrapper">
-          <h2 class="visually-hidden">Преимущества SuperSCADA</h2>
+          <h2 class="advantages__title">С SuperSCADA <br> вы получаете</h2>
+
           <ul class="advantages__list">
-            <li class="advantages__item advantages__item--control">
-              <h3 class="advantages__title">Управление территориально-распределенными объектами</h3>
-              <p class="advantages__description">
+            <li class="advantages__item advantages__item--control advantages-card">
+              <h3 class="advantages-card__title">Управление территориально-распределенными объектами</h3>
+              <p class="advantages-card__description">
                 SuperSCADA интегрирована с распространенной в России геоинформационной системой ZuluGIS разработчика Политерм
               </p>
             </li>
-            <li class="advantages__item advantages__item--protocols">
-              <h3 class="advantages__title">Максимум протоколов передачи данных</h3>
-              <p class="advantages__description">
+            <li class="advantages__item advantages__item--protocols advantages-card">
+              <h3 class="advantages-card__title">Максимум <br> протоколов <br> передачи <br> данных</h3>
+              <p class="advantages-card__description">
                 Поддержка как проприетарных, так и стандартизированных протоколов обмена реализуется пользователем созданием DATAPROVIDER
               </p>
             </li>
-            <li class="advantages__item advantages__item--reliability">
-              <h3 class="advantages__title">Высокая надежность</h3>
-              <p class="advantages__description">
+            <li class="advantages__item advantages__item--reliability advantages-card">
+              <h3 class="advantages-card__title">Высокая <br> надежность</h3>
+              <p class="advantages-card__description">
                 Горячее резервирование, защищенный обмен данными с помощью SSL-сертификатов, решение задач авторизации и аутентификации
               </p>
             </li>
-            <li class="advantages__item advantages__item--compatibility">
-              <h3 class="advantages__title">Легальность и совместимость с российским ПО</h3>
-              <p class="advantages__description">
+            <li class="advantages__item advantages__item--compatibility advantages-card">
+              <h3 class="advantages-card__title">Легальность и совместимость с российским ПО</h3>
+              <p class="advantages-card__description">
                 SuperSCADA вошла в Единый реестр российских программ для ЭВМ и баз данных под номером 14992, совместима с ОС Astra Linux Special Edition, совместима с операционной системой РЕД ОС
               </p>
             </li>
@@ -293,29 +305,32 @@
 
     <!-- Футер -->
     <footer>
-      <div class="footer__wrapper">
-        <div class="footer__headlines">
-          <p class="about__name">МЗТА</p>
-          <p class="about__name">SuperSCADA</p>
-          <p class="about__name">Контакты</p>
+      <div class="footer__wrapper contacts">
+        <div class="contacts__headlines">
+          <p class="contacts__name">МЗТА</p>
+          <p class="contacts__name">SuperSCADA</p>
+          <p class="contacts__name">Контакты</p>
         </div>
-        <div class="footer__about footer-text">
-          <p class="about__name">О компании</p>
-          <p class="about__name">Вакансии</p>
-          <p class="about__name">Новости</p>
+        <div class="contacts__about">
+          <p class="contacts__text">О компании</p>
+          <p class="contacts__text">Вакансии</p>
+          <p class="contacts__text">Новости</p>
         </div>
-        <div class="footer__about footer-text">
-          <p class="about__name">Документация</p>
-          <p class="about__name">Тарифы</p>
+        <div class="contacts__doc">
+          <p class="contacts__text">Документация</p>
+          <p class="contacts__text">Тарифы</p>
         </div>
-        <div class="footer__contact footer-text">
-          <p class="about__name">Россия, 105318, г. Москва, ул. Мироновская, 33</p>
-          <p class="about__name">info@mzta.ru</p>
-          <p class="about__name">+7 (495) 720-54-44</p>
-          <p class="about__name">8 (800) 555-61-84</p>
+        <div class="contacts__address">
+          <p class="contacts__text">Россия, 105318, г. Москва, ул. Мироновская, 33</p>
+          <p class="contacts__text">info@mzta.ru</p>
+          <p class="contacts__text">+7 (495) 720-54-44</p>
+          <p class="contacts__text">8 (800) 555-61-84</p>
         </div>
       </div>
-      <p>&copy; 2024 МЗТА</p>
+      <div class="page-footer__copyright copyright">
+        <b class="copyright__text">Разработано:</b>
+        <a class="copyright__link" href="https://march.ru">March</a>
+      </div>
     </footer>
   </body>
 </html>
