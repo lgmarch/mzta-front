@@ -99,7 +99,6 @@ export const build = gulp.series(
 
 // Develop
 export default gulp.series(
-  clean, copy, copyImages, gulp.parallel(
-    styles,html),
+  clean, copy, copyImages, gulp.parallel(styles, html),
   gulp.series(server, watcher)
 );
