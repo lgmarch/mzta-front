@@ -46,7 +46,7 @@ export const optimizeImages = () => {
 }
 
 export const copyImages = () => {
-  return gulp.src('source/img/**/*.{jpg,png,svg}')
+  return gulp.src('source/img/**/*.{jpg,png}', {encoding: false})
     .pipe(gulp.dest('build/img'));
 }
 
