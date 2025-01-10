@@ -8,6 +8,20 @@
   font-optical-sizing: auto;
 }
 
+.insert__img(@top: 50px, @right, @_path-to-img, @width: 150px, @height: 150px) {
+  position: absolute;
+  top: @top;
+  right: @right;
+
+  width: @width;
+  height: @height;
+
+  content: "";
+  background-image: url(@_path-to-img);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .line(@top) {
   position: absolute;
   top: @top;
