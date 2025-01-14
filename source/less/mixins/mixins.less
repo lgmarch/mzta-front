@@ -24,12 +24,12 @@
 }
 
 // Drawing a line inside a block
-.line(@top) {
+.line(@top, @color: @lightgrey) {
   position: absolute;
   top: @top;
-  left: 24px;
-  right: 24px;
+  left: 20px;
+  right: 20px;
 
   content: "";
-  border-top: 1px solid #68b738;
+  border-top: 1px solid @color;
 }
