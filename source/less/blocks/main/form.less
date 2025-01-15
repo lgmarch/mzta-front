@@ -8,28 +8,30 @@
 }
 
 .form__title {
-    .set-font(32px, 400, 35px, #fff);
+  .set-font(32px, 400, 35px, #fff);
 
-    margin: 0 auto 17px;
+  margin: 0 auto 17px;
 }
 
 .form__container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 49px;
 }
 
 .form__fill {
   display: flex;
   flex-direction: column;
+  align-items: stretch;
   gap: 18px;
 }
 
 .form__content {
   display: flex;
   flex-direction: column;
-  gap: 18px;
   align-items: center;
+  gap: 18px;
 }
 
 .form__label {
@@ -52,8 +54,4 @@
 .form__description {
   .set-font(16px, 400, 25px, @lightgrey);
   text-indent: 1.5em;
-}
-
-.form__btn {
-  .set-font(16px, 400, 18px, @lightgrey);
 }

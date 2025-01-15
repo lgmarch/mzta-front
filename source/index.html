@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>SuperSCADA</title>
-    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="./css/style.min.css">
   </head>
 
   <body class="page__body">
@@ -67,7 +67,7 @@
       <section class="advantages">
         <h2 class="visually-hidden">Преимущества SuperSCADA</h2>
         <div class="advantages__wrapper">
-          <h2 class="advantages__title">С SuperSCADA <br> вы получаете</h2>
+          <h2 class="advantages__title">С SuperSCADA<br>вы получаете</h2>
 
           <ul class="advantages__list">
             <li class="advantages__item advantages-card advantages-card__item--control">
@@ -268,55 +268,45 @@
             </div>
           </ul>
           <!-- Кнопки управления -->
-          <button class="slide__prev">←</button>
-          <button class="slide__next">→</button>
-        </div>
-      </section>
-
-      <section class="tiles">
-        <div class="tiles__wrapper">
-          <h2 class="tiles__title">SuperSCADA плиточки</h2>
-          <ul class="tiles__list movie slider__list">
-            <li class="movie slider__item">
-              <h3 class="visual-hidden">Просмотр кино 1.</h3>
-            </li>
-            <li class="movie slider__item">
-              <h3 class="visual-hidden">Просмотр кино 2.</h3>
-            </li>
-          </ul>
-          <p class="description__toggles slider__toggles">
-            <button class="slider__toggle slider__toggle--current" type="button">1</button>
-            <button class="slider__toggle" type="button">2</button>
-            <button class="slider__toggle" type="button">3</button>
-            <button class="slider__toggle" type="button">4</button>
-          </p>
+          <button class="slide_btn slide__prev">←</button>
+          <button class="slide_btn slide__next">→</button>
         </div>
       </section>
 
       <section class="form">
         <div class="form__wrapper">
           <h2 class="form__title">Попробуйте SuperSCADA бесплатно</h2>
-          <div class="form__fill">
-            <label for="mail" class="form__label">Ваша почта</label>
-            <input class="form__input" id="mail" type="text" placeholder="ivanov@yandex.ru" required>
 
-            <label for="surname" class="form__label">Ваша почта</label>
-            <input class="form__input" id="surname" type="text" placeholder="Иванов Иван Иванович" required>
+          <div class="form__container">
+            <div class="form__fill">
+              <div class="form__content">
+                <label for="mail" class="form__label">Ваша почта</label>
+                <input class="form__input" id="mail" type="text" placeholder="ivanov@yandex.ru" required>
+              </div>
+              <div class="form__content">
+                <label for="surname" class="form__label">Ваше ФИО</label>
+                <input class="form__input" id="surname" type="text" placeholder="Иванов Иван Иванович" required>
+              </div>
+              <div class="form__content">
+                <label for="firm" class="form__label">Название компании</label>
+                <input class="form__input" id="firm" type="text" placeholder="Рога и копыта" required>
+              </div>
+              <div class="form__content">
+                <label for="tel" class="form__label">Ваш телефон для связи</label>
+                <input class="form__input" id="tel" type="text" placeholder="+74954567890" required>
+              </div>
+            </div>
 
-            <label for="firm" class="form__label">Ваша почта</label>
-            <input class="form__input" id="firm" type="text" placeholder="Рога и копыта" required>
+            <button class="form__btn main-btn">Оставить заявку</button>
 
-            <label for="tel" class="form__label">Ваша почта</label>
-            <input class="form__input" id="tel" type="text" placeholder="+74954567890" required>
-          </div>
-          <div class="form__description">
-            <p>Оставьте заявку на демо-версию прямо сейчас через форму обратной связи на сайте и оцените все
-              возможности SuperSCADA в действии.
-            </p>
-            <p>Кроме того, Вы получите эксклюзивное коммерческое предложение на лицензию, доступ к
-              обучающим видеоматериалам и курсам, а также познакомитесь с "Плиточками SuperSCADA"
-            </p>
-            <button type="submit">Оставить заявку</button>
+            <div class="form__description">
+              <p>Оставьте заявку на демо-версию прямо сейчас через форму обратной связи на сайте и оцените все
+                возможности SuperSCADA в действии.
+              </p><br>
+              <p>Кроме того, Вы получите эксклюзивное коммерческое предложение на лицензию, доступ к
+                обучающим видеоматериалам и курсам, а также познакомитесь с "Плиточками SuperSCADA"
+              </p>
+            </div>
           </div>
         </div>
       </section>
