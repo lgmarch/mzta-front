@@ -1,0 +1,62 @@
+.slide__list {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: @mobile-width; /* calc(100% * 6) 4 слайда + 2 клонированных */
+}
+
+.slide__item {
+  flex: 0 0 100%; /* Каждая фотография занимает 100% ширины */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: @mobile-width;
+}
+
+.slide__item img {
+   width: 100%; /* Масштабирование для мобильных устройств */
+   height: auto;
+   max-height: 100%;
+   object-fit: cover;
+}
+
+/* Кнопки управления */
+.slide_btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+button.slide__prev {
+  left: 10px;
+}
+
+button.slide__next {
+  right: 10px;
+}
+
+/* Ползунок */
+.slide__progress-bar {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.slide__progress-indicator {
+  width: 33.33%; /* Начальная ширина индикатора (1 из 3 слайдов) */
+  height: 100%;
+  background: white;
+  transition: width 0.5s, transform 0.5s;
+}

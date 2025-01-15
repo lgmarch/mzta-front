@@ -237,29 +237,39 @@
       </section>
 
       <section class="jobs">
-        <div class="jobs__wrapper slider">
+        <div class="jobs__wrapper">
           <h2 class="jobs__title">Выполненные работы</h2>
-          <ul class="jobs__list reviews slider__list">
-            <li class="reviews slider__item">
+
+          <ul class="jobs__list slide__list">
+            <!-- Клонированный последний слайд -->
+            <li class="slide__item">
+              <img src="img/job/bez-sv3.png" alt="Отзыв от посольства США.">
+            </li>
+
+            <!-- Основные слайды -->
+            <li class="slide__item">
               <img src="img/job/bez-sv1.png" alt="Отзыв от ЗАО Безопасность и связь.">
             </li>
-            <li class="reviews slider__item">
+            <li class="slide__item">
               <img src="img/job/bez-sv2.png" alt="Отзыв от Первый Чешско-Российский банк.">
             </li>
-            <li class="reviews slider__item">
+            <li class="slide__item">
               <img src="img/job/bez-sv3.png" alt="Отзыв от Московского завода тепловой автоматикию">
             </li>
-            <li class="reviews slider__item">
-              <img src="img/job/bez-sv4.png" width="318" height="455" alt="Отзыв от посольства США.">
+
+            <!-- Клонированный первый слайд -->
+            <li class="slide__item">
+              <img src="img/job/bez-sv1.png" alt="Отзыв от ЗАО Безопасность и связь.">
             </li>
+
+            <!-- Ползунок -->
+            <div class="slide__progress-bar">
+              <div class="slide__progress-indicator"></div>
+            </div>
           </ul>
-          <p class="description__toggles slider__toggles">
-            <button class="slider__toggle slider__toggle--current" type="button">1</button>
-            <button class="slider__toggle" type="button">2</button>
-            <button class="slider__toggle" type="button">3</button>
-            <button class="slider__toggle" type="button">4</button>
-            <button class="slider__toggle" type="button">5</button>
-          </p>
+          <!-- Кнопки управления -->
+          <button class="slide__prev">←</button>
+          <button class="slide__next">→</button>
         </div>
       </section>
 
@@ -341,5 +351,6 @@
         <a class="copyright__link" href="https://march.ru">March</a>
       </div>
     </footer>
+    <script src="js/index.js" type="module"></script>
   </body>
 </html>
