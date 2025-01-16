@@ -316,26 +316,39 @@
     <footer>
       <div class="footer__wrapper contacts">
         <div class="contacts__headlines">
-          <p class="contacts__name">МЗТА</p>
-          <p class="contacts__name">SuperSCADA</p>
-          <p class="contacts__name">Контакты</p>
+          <div>
+            <p class="contacts__name" data-target="about">МЗТА</p>
+            <div class="contacts__triangle"></div>
+          </div>
+          <div>
+            <p class="contacts__name" data-target="doc">SuperSCADA</p>
+            <div class="contacts__triangle"></div>
+          </div>
+          <div>
+            <p class="contacts__name" data-target="address">Контакты</p>
+            <div class="contacts__triangle"></div>
+          </div>
         </div>
-        <div class="contacts__about">
-          <p class="contacts__text">О компании</p>
-          <p class="contacts__text">Вакансии</p>
-          <p class="contacts__text">Новости</p>
-        </div>
-        <div class="contacts__doc">
-          <p class="contacts__text">Документация</p>
-          <p class="contacts__text">Тарифы</p>
-        </div>
-        <div class="contacts__address">
-          <p class="contacts__text">Россия, 105318, г. Москва, ул. Мироновская, 33</p>
-          <p class="contacts__text">info@mzta.ru</p>
-          <p class="contacts__text">+7 (495) 720-54-44</p>
-          <p class="contacts__text">8 (800) 555-61-84</p>
+
+        <div class="contacts__container">
+          <div class="contacts__about contacts__text active" id="about">
+            <p>О компании</p>
+            <p>Вакансии</p>
+            <p>Новости</p>
+          </div>
+          <div class="contacts__doc contacts__text" id="doc">
+            <p>Документация</p>
+            <p>Тарифы</p>
+          </div>
+          <div class="contacts__address contacts__text" id="address">
+            <p>Россия, 105318, г. Москва,<br>ул. Мироновская, 33</p>
+            <p>info@mzta.ru</p>
+            <p>+7 (495) 720-54-44</p>
+            <p>8 (800) 555-61-84</p>
+          </div>
         </div>
       </div>
+
       <div class="page-footer__copyright copyright">
         <b class="copyright__text">Разработано:</b>
         <a class="copyright__link" href="https://march.ru">March</a>

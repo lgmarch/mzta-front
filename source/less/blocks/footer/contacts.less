@@ -1,0 +1,79 @@
+.contacts__headlines {
+  display: flex;
+  justify-content: space-between;
+
+  .set-font(15px, 400, 19px, #fff);
+
+  margin-bottom: 22px;
+
+  border-bottom: 1px solid @lightgrey;
+}
+
+.contacts__name {
+  position: relative;
+  display: block;
+
+  color: #fff;
+  transition: color 0.3s ease;
+
+  padding: 10px 0;
+  cursor: pointer;
+
+  &:hover {
+    color: @hover;
+
+    &::before {
+      position: absolute;
+      content: '';
+
+      bottom: 0.5px;
+      left: 10px;
+      width: 0;
+      height: 0;
+
+      border-style: solid;
+      border-width: 0 5px 5px 5px;
+      border-color: transparent transparent @hover transparent; /* Меняем цвет нижней рамки */
+      // transform: translateY(-2px); /* Двигаем треугольник вверх */
+    }
+  }
+}
+
+.contacts__triangle {
+  position: absolute;
+
+  &::before {
+    content: '';
+
+    top: 40px;
+    left: 20px;
+    width: 0;
+    height: 0;
+
+    border-style: solid;
+    border-width: 0 5px 5px 5px;
+    border-color: transparent transparent @lightgrey transparent;
+  }
+}
+
+.contacts__container {
+  display: flex;
+  justify-content: center;
+
+  height: 140px;
+}
+
+.contacts__text {
+  display: none;
+
+  .set-font(12px, 300, 16px, #fff);
+  text-align: center;
+}
+
+.contacts__text.active {
+  display: block;
+}
+
+.contacts__text p {
+  margin-bottom: 15px;
+}
