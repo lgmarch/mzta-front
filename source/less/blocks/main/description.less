@@ -1,17 +1,33 @@
+.description {
+  border-bottom: 1px solid @darkgrey;
+}
+
 .description__wrapper {
-  margin: 0 auto;
+  margin: 42px auto 42px;
   width: @mobile-width;
 }
 
-.description__title {
+.description__caption {
   .set-font(32px, 400, 35px, #fff);
 
-  margin-bottom: 76px;
+  margin: 0 auto 38px;
 }
 
-.description__intro {
-  .set-font(16px, 400, 20px, @lightgrey);
+.description__list {
+  margin-bottom: 71px;
+}
 
-  margin-bottom: 74px;
-  width: 262px;
+.description__list > .description__item:not(:last-child) {
+  margin-bottom: 24px;
+}
+
+.description__footer {
+  .set-font(20px, 400, 25px, #fff);
+
+  margin-bottom: 20px;
+}
+
+.description__note {
+  .set-font(12px, 400, 20px, #fff);
+  text-align: right;
 }

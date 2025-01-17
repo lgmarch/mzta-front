@@ -9,6 +9,7 @@ import imagemin from 'gulp-imagemin';
 import browser from 'browser-sync';
 import htmlmin from 'gulp-htmlmin';
 import {deleteAsync} from 'del';
+import terser from 'gulp-terser';
 
 // Styles
 export const styles = () => {
@@ -46,7 +47,7 @@ export const optimizeImages = () => {
 }
 
 export const copyImages = () => {
-  return gulp.src('source/img/**/*.{jpg,png,svg}')
+  return gulp.src('source/img/**/*.{jpg,png}', {encoding: false})
     .pipe(gulp.dest('build/img'));
 }
 
@@ -94,11 +95,12 @@ const watcher = () => {
 // Build
 export const build = gulp.series(
   clean, copy, optimizeImages,
-  gulp.parallel(styles,html),
+  gulp.parallel(styles,html, scripts),
 );
 
 // Develop
 export default gulp.series(
-  clean, copy, copyImages, gulp.parallel(styles, html),
+  clean, copy, copyImages,
+  gulp.parallel(styles, html, scripts),
   gulp.series(server, watcher)
 );
