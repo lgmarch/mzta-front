@@ -10,7 +10,6 @@
     "del": "^8.0.0",
     "eslint": "^9.18.0",
     "eslint-plugin-editorconfig": "^4.0.3",
-    "eslint-plugin-react": "^7.37.4",
     "gh-pages": "^6.2.0",
     "glob": "11.0.0",
     "globals": "^15.14.0",
