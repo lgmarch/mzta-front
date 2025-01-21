@@ -1,13 +1,16 @@
 const slides = document.querySelector('.slide__list');
 const slideItems = document.querySelectorAll('.slide__item');
-const prevButton = document.querySelector('.slide__prev');
-const nextButton = document.querySelector('.slide__next');
 const progressBar = document.querySelector('.slide__progress-bar');
 const progressIndicator = document.querySelector('.slide__progress-indicator');
 
 let currentIndex = 0; // Текущий индекс слайда
 const realSlidesCount = slideItems.length; // Количество слайдов
 const slideWidth = slideItems[0].clientWidth;
+
+let slideInterval; // Переменная для хранения интервала автоматического пролистывания
+const intervalTime = 2000; // Время между сменой слайдов (5 секунд)
+
+let isMouseDown = false; // Флаг для отслеживания, нажата ли кнопка мыши
 
 // Функция для обновления положения индикатора
 const updateProgressBar = () => {
@@ -33,25 +36,36 @@ const goToNext = () => {
   updateProgressBar();
 };
 
-// Функция для перехода к предыдущему слайду
-const goToPrev = () => {
-  if (currentIndex > 0) {
-    currentIndex--;
-  } else {
-    currentIndex = realSlidesCount - 1; // Возврат к последнему слайду
-  }
-  slides.style.transition = 'transform 0.5s ease-in-out';
-  slides.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
-
-  updateProgressBar();
+// Останавливаем автоматическое перелистывание
+const stopAutoSlide = () => {
+  clearInterval(slideInterval); // Останавливаем интервал
 };
 
-// Обработчики кнопок
-nextButton.addEventListener('click', goToNext);
-prevButton.addEventListener('click', goToPrev);
+// Запускаем автоматическое перелистывание слайдов
+const startAutoSlide = () => {
+  slideInterval = setInterval(goToNext, intervalTime); // Запускаем новый интервал
+};
 
-// Автоматическое пролистывание
-setInterval(goToNext, 5000);
+// Добавляем обработчики для кликов и удержания кнопки мыши
+slideItems.forEach(item => {
+  item.addEventListener('mousedown', () => {
+    stopAutoSlide(); // Останавливаем автоматическое перелистывание при удержании кнопки мыши
+    isMouseDown = true; // Устанавливаем флаг, что кнопка мыши нажата
+
+  });
+
+  item.addEventListener('mouseup', () => {
+    isMouseDown = false; // Сбрасываем флаг, что кнопка мыши отпущена
+    startAutoSlide(); // Возобновляем автоматическое перелистывание
+  });
+
+  item.addEventListener('click', () => {
+    goToNext(); // Перелистываем слайд при клике
+  });
+});
+
+// Запускаем автоматическое пролистывание при загрузке страницы
+startAutoSlide();
 
 // Обновляем прогресс-бар при загрузке
 updateProgressBar();
