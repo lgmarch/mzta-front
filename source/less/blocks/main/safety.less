@@ -3,7 +3,11 @@
 }
 
 .safety__wrapper {
+  overflow: hidden;
+
   margin: 31px auto 42px;
+  padding: 0 30px;
+
   width: @mobile-width;
 }
 
@@ -15,11 +19,9 @@
 
 .safety__container {
   position: relative;
-
   padding: 14px 32px 18px;
-
   border-radius: 25px;
-  background-color: rgba(192, 192, 192, 22%);
+  background-color: rgb(192 192 192 / 22%);
 
   &::before {
     .insert__img(130px, -50px, "../img/logo-kasper.png", 134px, 134px);

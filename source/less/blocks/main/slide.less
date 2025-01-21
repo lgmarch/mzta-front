@@ -16,6 +16,7 @@
   width: 100%; /* Масштабирование для мобильных устройств */
   height: auto;
   max-height: 100%;
+
   object-fit: cover;
 }
 
@@ -24,17 +25,16 @@
   position: absolute;
   z-index: 10;
   top: 57%;
-
-  color: white;
-
   width: 25px;
   height: 70px;
   padding: 10px 20px;
 
+  color: white;
+
   transform: translateY(-50%);
   border: none;
   border-radius: 25px;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgb(0 0 0 / 20%);
 
   cursor: pointer;
 }
@@ -59,20 +59,16 @@ button.slide__next {
   bottom: 22%;
   left: 5px;
   right: 5px;
-
   height: 6px;
-
   overflow: hidden;
   border-radius: 25px;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgb(255 255 255 / 50%);
 }
 
 .slide__progress-indicator {
   position: absolute;
   bottom: 2%;
-
   height: 60%;
-
   background: @btnred;
   border-radius: 25px;
   transition: width 0.5s, transform 0.5s;

@@ -3,7 +3,9 @@
 }
 
 .system__wrapper {
-  margin: 35px auto 35px;
+  margin: 35px auto;
+  padding: 0 30px;
+
   width: @mobile-width;
 }
 
@@ -16,13 +18,17 @@
 .system__certificate {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   gap: 34px;
-
   margin-bottom: 38px;
+}
+
+.system__certificate > img {
+
 }
 
 .system__note {
   .set-font(20px, 400, 25px, @lightgrey);
+
   text-align: center;
 }
