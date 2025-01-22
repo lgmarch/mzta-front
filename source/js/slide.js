@@ -6,6 +6,8 @@ slideContainers.forEach(container => {
   const progressIndicator = container.querySelector('.slide__progress-indicator');
   const slideList = container.querySelector('.slide__list');
 
+  if (!progressBar || !progressIndicator || !slideList) return;
+
   let currentIndex = 0;
   const realSlidesCount = slideItems.length;
   const slideWidth = slideItems[0].clientWidth;
@@ -44,7 +46,9 @@ slideContainers.forEach(container => {
 
   slideItems.forEach(item => {
     item.addEventListener('mousedown', stopAutoSlide);
+
     item.addEventListener('mouseup', startAutoSlide);
+
     item.addEventListener('click', goToNext);
   });
 
