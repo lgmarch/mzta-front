@@ -105,47 +105,57 @@
       </div>
 
       <section class="description">
-        <div class="description__wrapper slider">
+        <div class="description__wrapper">
           <h2 class="description__caption">X-платформенная среда разработки</h2>
-          <ul class="description__list slider__list">
-            <li class="description__item slider__item decision">
-              <h3 class="decision__title">ModBus TCP/IP 1</h3>
-              <p class="decision__text">
-                Открытый коммуникационный протокол, основанный на архитектуре ведущий — ведомый
-              </p>
-            </li>
-            <li class="description__item slider__item decision">
-              <h3 class="decision__title">ModBus TCP/IP 2</h3>
-              <p class="decision__text">
-                Открытый коммуникационный протокол, основанный на архитектуре ведущий — ведомый
-              </p>
-            </li>
-            <li class="description__item slider__item decision">
-              <h3 class="decision__title">ModBus TCP/IP 3</h3>
-              <p class="decision__text">
-                Открытый коммуникационный протокол, основанный на архитектуре ведущий — ведомый
-              </p>
-            </li>
-            <li class="description__item slider__item decision">
-              <h3 class="decision__title">ModBus TCP/IP 4</h3>
-              <p class="decision__text">
-                Открытый коммуникационный протокол, основанный на архитектуре ведущий — ведомый
-              </p>
-            </li>
-            <li class="description__item slider__item decision">
-              <h3 class="decision__title">ModBus TCP/IP 5</h3>
-              <p class="decision__text">
-                Открытый коммуникационный протокол, основанный на архитектуре ведущий — ведомый
-              </p>
-            </li>
-          </ul>
-          <p class="description__toggles slider__toggles">
-            <button class="slider__toggle slider__toggle--current" type="button">1</button>
-            <button class="slider__toggle" type="button">2</button>
-            <button class="slider__toggle" type="button">3</button>
-            <button class="slider__toggle" type="button">4</button>
-            <button class="slider__toggle" type="button">5</button>
-          </p>
+          <div class="description__container slide">
+            <ul class="description__list slide__list">
+              <li class="slide__item">
+                <div class="description__item">
+                  <h3 class="decision__title">ModBus TCP/IP 1</h3>
+                  <p class="decision__text">
+                    Открытый коммуникационный протокол, основанный на архитектуре ведущий — ведомый
+                  </p>
+                </div>
+              </li>
+              <li class="slide__item">
+                <div class="description__item">
+                  <h3 class="decision__title">ModBus TCP/IP 2</h3>
+                  <p class="decision__text">
+                    Открытый коммуникационный протокол, основанный на архитектуре ведущий — ведомый
+                  </p>
+                </div>
+              </li>
+              <li class="slide__item">
+                <div class="description__item">
+                  <h3 class="decision__title">ModBus TCP/IP 3</h3>
+                  <p class="decision__text">
+                    Открытый коммуникационный протокол, основанный на архитектуре ведущий — ведомый
+                  </p>
+                </div>
+              </li>
+              <li class="slide__item">
+                <div class="description__item">
+                  <h3 class="decision__title">ModBus TCP/IP 4</h3>
+                  <p class="decision__text">
+                    Открытый коммуникационный протокол, основанный на архитектуре ведущий — ведомый
+                  </p>
+                </div>
+              </li>
+              <li class="slide__item">
+                <div class="description__item">
+                  <h3 class="decision__title">ModBus TCP/IP 5</h3>
+                  <p class="decision__text">
+                    Открытый коммуникационный протокол, основанный на архитектуре ведущий — ведомый
+                  </p>
+                </div>
+              </li>
+            </ul>
+            <!-- Ползунок -->
+            <div class="slide__progress">
+              <div class="slide__progress-bar"></div>
+              <div class="slide__progress-indicator"></div>
+            </div>
+          </div>
           <p class="description__footer">
             Все распространенные протоколы, все отечественные ОС,
             любые контроллеры *
@@ -242,7 +252,7 @@
         <div class="jobs__wrapper">
           <h2 class="jobs__title">Выполненные работы</h2>
 
-          <div class="jobs__container">
+          <div class="jobs__container slide">
             <ul class="jobs__list slide__list">
               <!-- Слайды -->
               <li class="slide__item">

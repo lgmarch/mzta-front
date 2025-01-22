@@ -1,3 +1,8 @@
+.slide {
+  overflow: hidden;
+  margin: 0 auto;
+}
+
 .slide__list {
   display: flex;
   transition: transform 0.5s ease-in-out;
@@ -22,36 +27,12 @@
   object-fit: cover;
 }
 
-/* Кнопки управления */
-.slide_btn {
-  position: absolute;
-  z-index: 10;
-  top: 57%;
-  width: 25px;
-  height: 70px;
-  padding: 10px 20px;
-
-  color: white;
-
-  transform: translateY(-50%);
-  border: none;
-  border-radius: 25px;
-  background: rgb(0 0 0 / 20%);
-
-  cursor: pointer;
-}
-
-button.slide__prev {
-  left: 10px;
-}
-
-button.slide__next {
-  right: 10px;
-}
-
 .slide__progress {
   position: relative;
+
+  margin-bottom: 30px;
   height: 54px;
+
   overflow: hidden;
 }
 
