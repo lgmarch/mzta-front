@@ -3,7 +3,9 @@
 }
 
 .description__wrapper {
-  margin: 42px auto 42px;
+  margin: 42px auto;
+  padding: 0 30px;
+
   width: @mobile-width;
 }
 
@@ -14,7 +16,12 @@
 }
 
 .description__list {
-  margin-bottom: 71px;
+  margin-bottom: 30px;
+}
+
+.description__item {
+  border-radius: 25px;
+  background: rgb(128 128 128 / 50%);
 }
 
 .description__list > .description__item:not(:last-child) {
@@ -29,5 +36,6 @@
 
 .description__note {
   .set-font(12px, 400, 20px, #fff);
+
   text-align: right;
 }

@@ -1,6 +1,6 @@
 // по умолчанию: font: 16px/26px Montserrat 400;
 .set-font (@size: 16px, @weight: 400, @height: 20px, @color: @lightgrey) {
-  font-family: "Montserrat", sans-serif;
+  font-family: Montserrat, sans-serif;
   font-size: @size;
   font-weight: @weight;
   line-height: @height;
@@ -13,10 +13,8 @@
   position: absolute;
   top: @top;
   right: @right;
-
   width: @width;
   height: @height;
-
   content: "";
   background-image: url(@_path-to-img);
   background-size: cover;
@@ -29,7 +27,6 @@
   top: @top;
   left: 20px;
   right: 20px;
-
   content: "";
   border-top: 1px solid @color;
 }

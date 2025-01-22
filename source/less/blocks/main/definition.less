@@ -1,31 +1,33 @@
 .definition {
+  margin: 0 auto;
   border-bottom: 1px solid @darkgrey;
 }
 
 .definition__container {
-  position: relative;
+  position: relative; /* для наложения фона */
+  overflow: hidden;
+  margin: 0 auto;
+  padding: 0 30px;
+  width: @mobile-width;
 
-  &:before {
+  &::before {
     position: absolute;
     z-index: -1;
-    top: -90px;
-    left: 49%;
-
-    width: 854px;
-    height: 760px;
-
+    top: 40px;
+    left: 10px;
+    width: 728px;
+    height: 626px;
     content: "";
     background-image: url("../img/scada-logo.png");
     background-size: cover;
-    background-repeat: no-repeat;
     background-position: right;
-    object-fit: cover;
+    background-repeat: no-repeat;
   }
 }
 
 .definition__wrapper {
+  position: relative; /* для управления слоями */
   margin: 111px auto 42px;
-  width: @mobile-width;
 }
 
 .definition__title {
