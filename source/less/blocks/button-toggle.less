@@ -1,13 +1,14 @@
 .button-toggle {
-  position: absolute;
+  position: relative;
+  display: inline-block;
+
   z-index: 2;
-  display: block;
 
-  top: 40px;
-  right: 40px;
+  margin: 10px 10px;
+  width: 30px;
+  height: 30px;
 
-  width: 25px;
-  height: 25px;
+  transition: all 0.3s ease;
 
   background-color: @background;
   border: none;
@@ -15,68 +16,97 @@
   cursor: pointer;
 }
 
-.button-toggle::before,
-.button-toggle::after,
-.button-toggle .dot1,
-.button-toggle .dot2,
-.button-toggle .dot3,
-.button-toggle .dot4,
-.button-toggle .dot5,
-.button-toggle .dot6,
-.button-toggle .dot7 {
-  position: absolute;
-  content: "";
+.button-toggle span{
+    width: 5px;
+    height: 5px;
+    background-color: #fff;
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+}
 
-  width: 5px;
-  height: 5px;
+.button-toggle:hover span{
+  transform: scale(1.2);
+  transition: 350ms cubic-bezier(.8, .5, .2, 1.4);
+}
 
-  background-color: #d9d9d9;
+.button-toggle span:nth-child(1){
+  left: 0;
+  top: 0;
+}
+
+.button-toggle span:nth-child(2){
+  left: 12px;
+  top: 0;
+}
+
+.button-toggle span:nth-child(3){
+  right: 0;
+  top: 0;
+}
+
+.button-toggle span:nth-child(4){
+  left: 0;
+  top: 12px;
+}
+
+.button-toggle span:nth-child(5){
+  left: 12px;
+  top: 12px;
+}
+
+.button-toggle span:nth-child(6){
+  right: 0px;
+  top: 12px;
+
+  background-color: #7DE1E1;
+}
+
+.button-toggle span:nth-child(7){
+  left: 0px;
+  bottom: 0px;
+}
+
+.button-toggle span:nth-child(8){
+  left: 12px;
+  bottom: 0px;
+}
+
+.button-toggle span:nth-child(9){
+  right: 0px;
+  bottom: 0px;
+
+  background-color: #E5585F;
+}
+
+.button-toggle.open{
+  transform: rotate(180deg);
+  cursor: pointer;
+  transition: .2s cubic-bezier(.8, .5, .2, 1.4);
+}
+
+.button-toggle.open span{
   border-radius: 50%;
+  transition: .5s cubic-bezier(.8, .5, .2, 1.4);
+  transition-delay: 200ms;
 }
 
-.button-toggle::before {
-  top: 0;
-  left: 0;
+.button-toggle.open span:nth-child(2) {
+  left: 6px;
+  top: 6px;
 }
 
-.button-toggle::after {
-  top: 0;
-  right: 0;
+.button-toggle.open span:nth-child(4) {
+  left: 6px;
+  top: 18px;
 }
 
-.button-toggle .dot1 {
-  top: 0;
-  left: 10px;
+.button-toggle.open span:nth-child(6) {
+  right: 6px;
+  top: 6px;
 }
 
-.button-toggle .dot2 {
-  top: 10px;
-  right: 0;
-  background-color: #7de1e1;
-}
-
-.button-toggle .dot3 {
-  top: 10px;
-  left: 0;
-}
-
-.button-toggle .dot4 {
-  top: 10px;
-  left: 10px;
-}
-
-.button-toggle .dot5 {
-  top: 20px;
-  right: 0;
-  background-color: #e5585f;
-}
-
-.button-toggle .dot6 {
-  top: 20px;
-  left: 0;
-}
-
-.button-toggle .dot7 {
-  top: 20px;
-  left: 10px;
+.button-toggle.open span:nth-child(8) {
+  left: 18px;
+  bottom: 6px;
 }
