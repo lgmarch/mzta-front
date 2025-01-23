@@ -35,6 +35,19 @@
       border-color: transparent transparent @hover; /* Меняем цвет нижней рамки */
       // transform: translateY(-2px); /* Двигаем треугольник вверх */
     }
+
+    &::after {
+      position: absolute;
+      content: "";
+      bottom: -1.5px;
+      left: 10px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 7px 10px;
+      border-color: transparent transparent @background; /* Меняем цвет нижней рамки */
+      // transform: translateY(-2px); /* Двигаем треугольник вверх */
+    }
   }
 }
 
@@ -49,6 +62,18 @@
     border-style: solid;
     border-width: 7px 10px;
     border-color: transparent transparent @lightgrey;
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    bottom: -1.5px;
+    left: 10px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 7px 10px;
+    border-color: transparent transparent @background;
   }
 }
 
