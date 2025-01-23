@@ -46,10 +46,12 @@ slideContainers.forEach(container => {
 
   slideItems.forEach(item => {
     item.addEventListener('mousedown', stopAutoSlide);
-
     item.addEventListener('mouseup', startAutoSlide);
-
     item.addEventListener('click', goToNext);
+
+    item.addEventListener('mousedown', event => {
+      event.preventDefault(); // Отмена выделения текста
+    });
   });
 
   startAutoSlide();
