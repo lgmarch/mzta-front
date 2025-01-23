@@ -1,17 +1,19 @@
 .main-nav {
-  position: absolute;
+  position: fixed;
   overflow: hidden;
   z-index: 2;
 
   top: 100px;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
 
-  width: 100%;
+  width: 390px;
   height: 0;
 
   color: #fff;
 
   transition: height 0.5s ease-in-out;
+
   background-color: rgba(0, 0, 0, 17%);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid @darkgrey;
