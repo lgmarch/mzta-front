@@ -1,0 +1,22 @@
+.blur-red {
+  z-index: 1;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: -5;
+
+    top: 10px;
+    right: 0;
+    width: 1313px;
+    height: 1090px;
+
+    background: url('../img/backdrop-red.svg') no-repeat center / cover;
+    filter: blur(200px);
+    opacity: 0.6;
+    mix-blend-mode: multiply;
+
+    transform: translateX(0) rotate(35deg);
+  }
+}
