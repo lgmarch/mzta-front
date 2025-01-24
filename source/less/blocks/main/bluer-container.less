@@ -1,0 +1,29 @@
+.bluer-container__wrapper {
+  z-index: 1;
+  position: relative;
+  overflow: hidden;
+
+  margin: 0 auto;
+  width: 390px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: 0;
+
+    color: @btnred;
+
+    top: 10px;
+    right: 70%;
+    width: 1313px;
+    height: 1090px;
+
+    background: url('../img/backdrop-red.svg') no-repeat center / cover;
+    //background-color: @btnred; /* Цвет для наложения поверх SVG */
+    filter: blur(200px);
+    opacity: 0.6;
+    mix-blend-mode: multiply; /* Смешение цветов */
+
+    transform: translateX(30%) rotate(35deg);
+  }
+}
