@@ -1,28 +1,6 @@
 .advantages__wrapper {
-  z-index: 1;
-  position: relative;
-
   margin: 29px auto 47px;
   width: @mobile-width;
-
-  &::after {
-    content: '';
-    position: absolute;
-    z-index: 0;
-
-    top: 30px;
-    left: 7%;
-    width: 1313px;
-    height: 1090px;
-
-    background: url('../img/backdrop-blue.svg') no-repeat center / cover;
-    //background-color: @btnblue; /* Цвет для наложения поверх SVG */
-    filter: blur(200px);
-    opacity: 0.6;
-    mix-blend-mode: multiply; /* Смешение цветов */
-
-    transform: translateX(-23%) rotate(35deg);
-  }
 }
 
 .advantages__title {
