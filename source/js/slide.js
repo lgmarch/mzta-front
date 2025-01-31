@@ -83,6 +83,22 @@ slideContainers.forEach(container => {
 
     item.addEventListener('click', goToNext);
     item.addEventListener('mousedown', event => event.preventDefault());
+
+    // Добавляем обработку на мобильных устройствах
+    item.addEventListener('touchstart', () => {
+      stopAutoSlide();
+      isDraggingSlide = true;
+    });
+
+    item.addEventListener('touchend', () => {
+      isDraggingSlide = false;
+      startAutoSlide();
+    });
+
+    item.addEventListener('touchcancel', () => {
+      isDraggingSlide = false;
+      startAutoSlide();
+    });
   });
 
   // Обработчики для перетаскивания индикатора
