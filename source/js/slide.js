@@ -14,9 +14,11 @@ slideContainers.forEach(container => {
   const intervalTime = 1000;
 
   let autoSlideInterval;
-  let isDragging = false;
+  let isDraggingIndicator = false;
+  let isDraggingSlide = false;
   let startX = 0;
-  let initialIndicatorPosition = 0;
+  let progressBarRect;
+  let indicatorWidth;
 
   const updateProgressBar = () => {
     const progressBarWidth = progressBar.clientWidth;
@@ -38,7 +40,9 @@ slideContainers.forEach(container => {
   };
 
   const goToNext = () => {
-    goToSlide((currentIndex + 1) % realSlidesCount);
+    if (!isDraggingIndicator && !isDraggingSlide) {
+      goToSlide((currentIndex + 1) % realSlidesCount);
+    }
   };
 
   const stopAutoSlide = () => {
@@ -46,7 +50,10 @@ slideContainers.forEach(container => {
   };
 
   const startAutoSlide = () => {
-    autoSlideInterval = setInterval(goToNext, intervalTime);
+    stopAutoSlide();
+    if (!isDraggingIndicator && !isDraggingSlide) {
+      autoSlideInterval = setInterval(goToNext, intervalTime);
+    }
   };
 
   progressBar.addEventListener('click', (event) => {
@@ -59,57 +66,52 @@ slideContainers.forEach(container => {
   });
 
   slideItems.forEach(item => {
-    item.addEventListener('mousedown', stopAutoSlide);
-    item.addEventListener('mouseup', startAutoSlide);
-    item.addEventListener('click', goToNext);
-
-    item.addEventListener('mousedown', event => {
-      event.preventDefault(); // Отмена выделения текста
+    item.addEventListener('mousedown', () => {
+      stopAutoSlide();
+      isDraggingSlide = true;
     });
+
+    item.addEventListener('mouseup', () => {
+      isDraggingSlide = false;
+      startAutoSlide();
+    });
+
+    item.addEventListener('mouseleave', () => {
+      isDraggingSlide = false;
+      startAutoSlide();
+    });
+
+    item.addEventListener('click', goToNext);
+    item.addEventListener('mousedown', event => event.preventDefault());
   });
 
   // Обработчики для перетаскивания индикатора
   progressIndicator.addEventListener('mousedown', (event) => {
-    event.preventDefault(); // предотвращаем выделение текста
+    event.preventDefault();
 
-    isDragging = true;
-    const progressBarRect = progressBar.getBoundingClientRect();
-    const indicatorWidth = progressIndicator.offsetWidth;
-
-    // Прекращаем автоперелистывание слайдов при перетаскивании индикатора
-    stopAutoSlide();
+    isDraggingIndicator = true;
+    progressBarRect = progressBar.getBoundingClientRect();
+    indicatorWidth = progressIndicator.offsetWidth;
 
     startX = event.clientX;
-    initialIndicatorPosition = progressIndicator.getBoundingClientRect().left - progressBarRect.left;
+
+    stopAutoSlide();
 
     const onMouseMove = (moveEvent) => {
-      if (isDragging) {
-        // Вычисляем смещение относительно начальной точки
-        let offsetX = moveEvent.clientX - startX + initialIndicatorPosition;
+      if (!isDraggingIndicator) return;
+      moveEvent.preventDefault();
 
-        // Ограничиваем движение индикатора в пределах прогресс-бара
-        offsetX = Math.max(0, Math.min(offsetX, progressBarRect.width - indicatorWidth));
+      let offsetX = moveEvent.clientX - progressBarRect.left;
+      offsetX = Math.max(0, Math.min(offsetX, progressBarRect.width - indicatorWidth));
 
-        // Обновляем позицию индикатора
-        progressIndicator.style.transform = `translateX(${offsetX}px)`;
+      progressIndicator.style.transform = `translateX(${offsetX}px)`;
 
-        // Вычисляем новый индекс слайда на основе позиции индикатора
-        const newIndex = Math.floor((offsetX / progressBarRect.width) * realSlidesCount);
-
-        // Обновляем слайды
-        goToSlide(newIndex);
-      }
+      const newIndex = Math.floor((offsetX / progressBarRect.width) * realSlidesCount);
+      goToSlide(newIndex);
     };
 
     const onMouseUp = () => {
-      isDragging = false;
-
-      // После отпускания мыши вычисляем новое положение индикатора и слайдов
-      const offsetX = progressIndicator.getBoundingClientRect().left - progressBar.getBoundingClientRect().left;
-      const newIndex = Math.floor((offsetX / progressBar.offsetWidth) * realSlidesCount);
-
-      // Обновляем индекс слайда и продолжаем движение с того места, где остановились
-      goToSlide(newIndex);
+      isDraggingIndicator = false;
       startAutoSlide();
 
       document.removeEventListener('mousemove', onMouseMove);
