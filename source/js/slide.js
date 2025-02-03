@@ -14,6 +14,10 @@ slideContainers.forEach(container => {
   const intervalTime = 1000;
 
   let autoSlideInterval;
+  let isDraggingIndicator = false;
+  let isDraggingSlide = false;
+  let progressBarRect;
+  let indicatorWidth;
 
   const updateProgressBar = () => {
     const progressBarWidth = progressBar.clientWidth;
@@ -24,16 +28,20 @@ slideContainers.forEach(container => {
     progressIndicator.style.transform = `translateX(${translateValue}px)`;
   };
 
-  const goToNext = () => {
-    if (currentIndex < realSlidesCount - 1) {
-      currentIndex++;
-    } else {
-      currentIndex = 0;
-    }
-    slideList.style.transition = 'transform 0.5s ease-in-out';
-    slideList.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
+  const goToSlide = (index) => {
+    if (index >= 0 && index < realSlidesCount) {
+      currentIndex = index;
+      slideList.style.transition = 'transform 0.5s ease-in-out';
+      slideList.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
 
-    updateProgressBar();
+      updateProgressBar();
+    }
+  };
+
+  const goToNext = () => {
+    if (!isDraggingIndicator && !isDraggingSlide) {
+      goToSlide((currentIndex + 1) % realSlidesCount);
+    }
   };
 
   const stopAutoSlide = () => {
@@ -41,20 +49,92 @@ slideContainers.forEach(container => {
   };
 
   const startAutoSlide = () => {
-    autoSlideInterval = setInterval(goToNext, intervalTime);
+    stopAutoSlide();
+    if (!isDraggingIndicator && !isDraggingSlide) {
+      autoSlideInterval = setInterval(goToNext, intervalTime);
+    }
   };
 
-  slideItems.forEach(item => {
-    item.addEventListener('mousedown', stopAutoSlide);
-    item.addEventListener('mouseup', startAutoSlide);
-    item.addEventListener('click', goToNext);
+  progressBar.addEventListener('click', (event) => {
+    const clickX = event.clientX - progressBar.getBoundingClientRect().left;
+    const newIndex = Math.floor((clickX / progressBar.clientWidth) * realSlidesCount);
 
-    item.addEventListener('mousedown', event => {
-      event.preventDefault(); // Отмена выделения текста
+    stopAutoSlide();
+    goToSlide(newIndex);
+    startAutoSlide();
+  });
+
+  slideItems.forEach(item => {
+    item.addEventListener('mousedown', () => {
+      stopAutoSlide();
+      isDraggingSlide = true;
+    });
+
+    item.addEventListener('mouseup', () => {
+      isDraggingSlide = false;
+      startAutoSlide();
+    });
+
+    item.addEventListener('mouseleave', () => {
+      isDraggingSlide = false;
+      startAutoSlide();
+    });
+
+    item.addEventListener('click', goToNext);
+    item.addEventListener('mousedown', event => event.preventDefault());
+
+    // Добавляем обработку на мобильных устройствах
+    item.addEventListener('touchstart', () => {
+      stopAutoSlide();
+      isDraggingSlide = true;
+    });
+
+    item.addEventListener('touchend', () => {
+      isDraggingSlide = false;
+      startAutoSlide();
+    });
+
+    item.addEventListener('touchcancel', () => {
+      isDraggingSlide = false;
+      startAutoSlide();
     });
   });
 
-  startAutoSlide();
+  // Обработчики для перетаскивания индикатора
+  progressIndicator.addEventListener('mousedown', (event) => {
+    event.preventDefault();
 
+    isDraggingIndicator = true;
+    progressBarRect = progressBar.getBoundingClientRect();
+    indicatorWidth = progressIndicator.offsetWidth;
+
+    stopAutoSlide();
+
+    const onMouseMove = (moveEvent) => {
+      if (!isDraggingIndicator) return;
+      moveEvent.preventDefault();
+
+      let offsetX = moveEvent.clientX - progressBarRect.left;
+      offsetX = Math.max(0, Math.min(offsetX, progressBarRect.width - indicatorWidth));
+
+      progressIndicator.style.transform = `translateX(${offsetX}px)`;
+
+      const newIndex = Math.floor((offsetX / progressBarRect.width) * realSlidesCount);
+      goToSlide(newIndex);
+    };
+
+    const onMouseUp = () => {
+      isDraggingIndicator = false;
+      startAutoSlide();
+
+      document.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('mouseup', onMouseUp);
+    };
+
+    document.addEventListener('mousemove', onMouseMove);
+    document.addEventListener('mouseup', onMouseUp);
+  });
+
+  startAutoSlide();
   updateProgressBar();
 });
