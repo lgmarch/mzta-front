@@ -16,7 +16,6 @@ slideContainers.forEach(container => {
   let autoSlideInterval;
   let isDraggingIndicator = false;
   let isDraggingSlide = false;
-  let startX = 0;
   let progressBarRect;
   let indicatorWidth;
 
@@ -108,8 +107,6 @@ slideContainers.forEach(container => {
     isDraggingIndicator = true;
     progressBarRect = progressBar.getBoundingClientRect();
     indicatorWidth = progressIndicator.offsetWidth;
-
-    startX = event.clientX;
 
     stopAutoSlide();
 
